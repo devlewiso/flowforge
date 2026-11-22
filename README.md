@@ -116,9 +116,10 @@ See [SECURITY.md](SECURITY.md) for the full threat model.
 5. Click **Download .json** and import it in n8n: *Workflows → Import from File*. Then connect your credentials in each node.
 
 ## How it was built
-FlowForge is built by [NeuralCodeLab](https://neuralcodelab.com), working with [Claude](https://claude.com/claude-code) (Anthropic) as an AI collaborator:
+FlowForge is built by [NeuralCodeLab](https://neuralcodelab.com), working with AI collaborators:
 
-- **Planning:** Claude helped break the product into milestones and shape the provider and review flows.
+- **First prototype:** built with [opencode](https://opencode.ai), an open source coding agent.
+- **Planning:** [Claude](https://claude.com/claude-code) (Anthropic) helped break the product into milestones and shape the provider and review flows.
 - **Code review:** every change was reviewed by Claude before release.
 - **Security exercise:** Claude ran the red, blue and purple team agents. The red team only simulated attacks on an isolated lab copy, the blue team checked that abuse leaves a trace, and the purple team turned each finding into a fix and re-tested it. The results are summarized in [SECURITY.md](SECURITY.md) and on the `/security` page.
 
