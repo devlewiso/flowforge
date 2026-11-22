@@ -9,6 +9,8 @@ import { buildReview, buildReviewLog, type ReviewDecision } from "@/lib/review";
 import { ConnectionPanel, connectionLabel, useConnection } from "@/components/ConnectionPanel";
 import { groupForType, GROUP_META, nodeTypeLabel } from "@/lib/nodes";
 import { slugifyFileName, type WorkflowIssue } from "@/lib/n8n";
+import { SITE } from "@/lib/site";
+import { siGithub } from "simple-icons";
 import type { ApiError, GenerateResponse } from "@/lib/types";
 
 const EXAMPLES = [
@@ -285,6 +287,18 @@ export default function Home() {
             />
             {conn.loading ? "Checking providers…" : conn.ready ? activeLabel : "Set up a provider"}
           </div>
+          <a
+            href={SITE.repo}
+            target="_blank"
+            rel="noreferrer"
+            title="Source code on GitHub: run FlowForge on your own machine"
+            className="ml-auto inline-flex items-center gap-2 rounded-full border border-line bg-panel-2 px-3 py-1.5 text-[11px] text-muted transition hover:border-accent/40 hover:text-text sm:ml-0"
+          >
+            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor" aria-hidden="true">
+              <path d={siGithub.path} />
+            </svg>
+            GitHub
+          </a>
         </div>
       </header>
 
@@ -724,6 +738,7 @@ export default function Home() {
             <Link href="/terms" className="hover:text-muted">Terms</Link>
             <Link href="/security" className="hover:text-muted">Security</Link>
             <Link href="/licenses" className="hover:text-muted">Licenses</Link>
+            <a href={SITE.repo} target="_blank" rel="noreferrer" className="hover:text-muted">GitHub</a>
           </nav>
           <span className="w-full font-mono sm:w-auto">no database · prompts and keys are never stored on the server</span>
         </footer>
