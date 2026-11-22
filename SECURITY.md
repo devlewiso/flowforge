@@ -12,7 +12,8 @@ FlowForge turns text into n8n workflows that people will run on their own server
 | Server-side request forgery | Custom endpoints are off in production. When on (local use), they may only target `localhost` unless listed in `ALLOWED_ENDPOINT_HOSTS`. Redirects are not followed and error bodies from custom endpoints are never shown. |
 | A website you visit driving your local FlowForge | API calls must be JSON from the same origin (`Origin` / `Sec-Fetch-Site`), otherwise 403. |
 | Abuse and runaway costs | Per-IP rate limits on generation and model listing. |
-| Clickjacking / injected scripts | Strict Content-Security-Policy (no external scripts), `X-Frame-Options: DENY`, `nosniff`, `no-referrer`. |
+| Someone intercepting traffic (man in the middle) | HTTPS everywhere on a hosted instance, with HSTS so browsers never fall back to plain http. Calls to cloud providers use HTTPS with certificate checks. Local models stay on `localhost`; a model on another machine over plain http is unencrypted on that network. |
+| Clickjacking / injected scripts | Strict Content-Security-Policy (no external scripts), `X-Frame-Options: DENY`, `nosniff`, `no-referrer`. | `Strict-Transport-Security`.
 | Silent attacks | One `[audit]` JSON line per API call: route, status, provider, key source (user/server), custom endpoint host, Origin, reason. Never the key or the prompt. |
 | Vulnerable dependencies | `npm audit`: 0 known vulnerabilities (PostCSS pinned to a patched release via `overrides`). |
 

@@ -72,7 +72,8 @@ ALLOW_CUSTOM_BASE_URL=false
 
 LLM_TIMEOUT_MS=
 
-# Extra hosts a browser-supplied endpoint may use (default: only localhost)
+# Extra hosts a browser-supplied endpoint may use (default: only localhost).
+# Plain http:// to another machine travels unencrypted over your network: prefer https or keep it on localhost.
 ALLOWED_ENDPOINT_HOSTS=192.168.1.50,gpu-box.lan
 
 # Per-IP limits per 10 minutes (0 = off) and proxy trust
@@ -104,7 +105,8 @@ Run `npm run check:prod` before deploying; it fails if the contact email is miss
 - **Dangerous nodes are blocked.** Workflows with shell commands, SSH, server file access, the n8n API or code that reaches the OS are refused unless you tick *Allow dangerous nodes*; even then they are flagged, and an unauthenticated webhook/form leading to them is called out.
 - **Cross-site requests are rejected** (JSON only, same Origin), so a website you visit cannot drive your local FlowForge.
 - **Custom endpoints** may only point at this machine unless listed in `ALLOWED_ENDPOINT_HOSTS`; redirects are not followed and their error bodies are never shown.
-- **Rate limits** per IP, **security headers** (CSP, no framing) and an **audit log** line per API call (`[audit] {...}`) with provider, key source (user/server), endpoint host, Origin and status.
+- **Encrypted in transit:** HTTPS between your browser and a hosted instance (with HSTS) and between the server and every cloud provider. Local models stay on `localhost`. If you point FlowForge at a model on another machine, use https or a trusted network.
+- **Rate limits** per IP, **security headers** (CSP, HSTS, no framing) and an **audit log** line per API call (`[audit] {...}`) with provider, key source (user/server), endpoint host, Origin and status.
 
 See [SECURITY.md](SECURITY.md) for the full threat model.
 
