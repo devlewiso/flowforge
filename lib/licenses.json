@@ -1,0 +1,32 @@
+[
+  {
+    "name": "@anthropic-ai/sdk",
+    "version": "1.12.0",
+    "license": "Apache-2.0",
+    "url": "github:anthropics/anthropic-sdk-typescript"
+  },
+  {
+    "name": "next",
+    "version": "15.5.29",
+    "license": "MIT",
+    "url": "https://nextjs.org"
+  },
+  {
+    "name": "react",
+    "version": "19.3.1",
+    "license": "MIT",
+    "url": "https://react.dev/"
+  },
+  {
+    "name": "react-dom",
+    "version": "19.3.1",
+    "license": "MIT",
+    "url": "https://react.dev/"
+  },
+  {
+    "name": "simple-icons",
+    "version": "16.38.0",
+    "license": "CC0-1.0",
+    "url": "https://simpleicons.org"
+  }
+]
