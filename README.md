@@ -114,3 +114,12 @@ See [SECURITY.md](SECURITY.md) for the full threat model.
 3. Review the **diagram**, the **JSON** and the **warnings**.
 4. Open **Review**: every node was chosen by the model, and the ones that need a credential, write data or point at a sheet, table, channel or URL are flagged. Mark each one *Approve as generated* or *I changed it*, then **Download review log** to keep a record of what the model picked and what a person changed.
 5. Click **Download .json** and import it in n8n: *Workflows → Import from File*. Then connect your credentials in each node.
+
+## How it was built
+FlowForge is built by [NeuralCodeLab](https://neuralcodelab.com), working with [Claude](https://claude.com/claude-code) (Anthropic) as an AI collaborator:
+
+- **Planning:** Claude helped break the product into milestones and shape the provider and review flows.
+- **Code review:** every change was reviewed by Claude before release.
+- **Security exercise:** Claude ran the red, blue and purple team agents. The red team only simulated attacks on an isolated lab copy, the blue team checked that abuse leaves a trace, and the purple team turned each finding into a fix and re-tested it. The results are summarized in [SECURITY.md](SECURITY.md) and on the `/security` page.
+
+Every decision and every release is approved by a person.
